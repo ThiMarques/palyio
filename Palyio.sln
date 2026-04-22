@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EA239F29-97F6-400E-8025-08202872E6AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palyio.API", "src\Palyio.API\Palyio.API.csproj", "{CF494B84-DA82-41D4-A324-AB32A58913D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palyio.Application", "src\Palyio.Application\Palyio.Application.csproj", "{EB065777-3726-402A-9C0B-87EE1BC8D1A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palyio.Domain", "src\Palyio.Domain\Palyio.Domain.csproj", "{317B2E88-868A-4455-83FC-EF6EDC7D8514}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palyio.Infrastructure", "src\Palyio.Infrastructure\Palyio.Infrastructure.csproj", "{1D48D081-87FF-4D9B-AA1E-27433D1ED6B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palyio.Tests.Unit", "src\Palyio.Tests.Unit\Palyio.Tests.Unit.csproj", "{77B98B9B-7903-43ED-80AF-021722661E5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palyio.Tests.Integration", "src\Palyio.Tests.Integration\Palyio.Tests.Integration.csproj", "{7F298E28-30D6-4927-B7C3-0EFE6F2245B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF494B84-DA82-41D4-A324-AB32A58913D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF494B84-DA82-41D4-A324-AB32A58913D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF494B84-DA82-41D4-A324-AB32A58913D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF494B84-DA82-41D4-A324-AB32A58913D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB065777-3726-402A-9C0B-87EE1BC8D1A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB065777-3726-402A-9C0B-87EE1BC8D1A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB065777-3726-402A-9C0B-87EE1BC8D1A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB065777-3726-402A-9C0B-87EE1BC8D1A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{317B2E88-868A-4455-83FC-EF6EDC7D8514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{317B2E88-868A-4455-83FC-EF6EDC7D8514}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{317B2E88-868A-4455-83FC-EF6EDC7D8514}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{317B2E88-868A-4455-83FC-EF6EDC7D8514}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D48D081-87FF-4D9B-AA1E-27433D1ED6B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D48D081-87FF-4D9B-AA1E-27433D1ED6B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D48D081-87FF-4D9B-AA1E-27433D1ED6B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D48D081-87FF-4D9B-AA1E-27433D1ED6B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77B98B9B-7903-43ED-80AF-021722661E5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77B98B9B-7903-43ED-80AF-021722661E5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77B98B9B-7903-43ED-80AF-021722661E5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77B98B9B-7903-43ED-80AF-021722661E5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F298E28-30D6-4927-B7C3-0EFE6F2245B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F298E28-30D6-4927-B7C3-0EFE6F2245B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F298E28-30D6-4927-B7C3-0EFE6F2245B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F298E28-30D6-4927-B7C3-0EFE6F2245B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CF494B84-DA82-41D4-A324-AB32A58913D9} = {EA239F29-97F6-400E-8025-08202872E6AA}
+		{EB065777-3726-402A-9C0B-87EE1BC8D1A9} = {EA239F29-97F6-400E-8025-08202872E6AA}
+		{317B2E88-868A-4455-83FC-EF6EDC7D8514} = {EA239F29-97F6-400E-8025-08202872E6AA}
+		{1D48D081-87FF-4D9B-AA1E-27433D1ED6B2} = {EA239F29-97F6-400E-8025-08202872E6AA}
+		{77B98B9B-7903-43ED-80AF-021722661E5B} = {EA239F29-97F6-400E-8025-08202872E6AA}
+		{7F298E28-30D6-4927-B7C3-0EFE6F2245B9} = {EA239F29-97F6-400E-8025-08202872E6AA}
+	EndGlobalSection
+EndGlobal
