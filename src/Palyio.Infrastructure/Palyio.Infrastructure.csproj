@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Palyio.Domain\Palyio.Domain.csproj" />
+    <ProjectReference Include="..\Palyio.Application\Palyio.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
