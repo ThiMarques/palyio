@@ -4,9 +4,9 @@ namespace Palyio.Domain.Entities
 {
     public record class Transaction : Entity
     {
-        public Guid FromAccountId { get; set; }
-        public Guid ToAccountId { get; set; }
-        public long Amount { get; set; }
-        public ETransactionType TransactionType { get; set; }
+        public required Guid FromAccountId { get; set; }
+        public required Guid ToAccountId { get; set; }
+        public required long Amount { get; set; }
+        public required ETransactionType TransactionType { get; set; }
     }
 }
