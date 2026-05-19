@@ -13,6 +13,10 @@ public static class RouterExtensions
     {
         var v1 = builder.MapGroup("/v1");
         v1.MapPost("/user", UserHandler.CreateUser);
+        v1.MapGet("/users", UserHandler.GetAllUsers);
+        v1.MapGet("/user/{id}", UserHandler.GetUserById);
+        v1.MapPut("/user/{id}", UserHandler.UpdateUser);
+        v1.MapDelete("/user/{id}", UserHandler.DeleteUser);
 
         return builder;
     }
