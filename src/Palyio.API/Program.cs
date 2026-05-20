@@ -21,8 +21,10 @@ builder.Services.AddSingleton(mongoSettings);
 builder.Services.AddSingleton<MongoDbContext>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 
 builder.Services.AddScoped<IUserUseCase, UserUseCase>();
+builder.Services.AddScoped<IAccountUseCase, AccountUseCase>();
 
 var app = builder.Build();
 

@@ -20,6 +20,11 @@ public class AccountRepository(MongoDbContext context) : IAccountRepository
         return await _collection.Find(filter).ToListAsync();
     }
 
+    public async Task<IEnumerable<Account>> GetAllAccountsAsync()
+    {
+        return await _collection.Find(_ => true).ToListAsync();
+    }
+
     public async Task InsertAsync(Account account)
     {
         await _collection.InsertOneAsync(account);
