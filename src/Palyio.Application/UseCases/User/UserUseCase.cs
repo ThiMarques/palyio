@@ -24,5 +24,54 @@ namespace Palyio.Application.UseCases
 
             return newUser;
         }
+
+        public async Task<Result<List<User>>> GetAllUsers()
+        {
+            var users = await userRepository.GetAllAsync();
+
+            if (!users.Any())
+                return ConstantMessages.UsersNotFound;
+
+            return users.ToList();
+        }
+
+        public async Task<Result<User>> GetUserById(Guid id)
+        {
+            var user = await userRepository.GetByIdAsync(id);
+
+            if (user == null)
+                return ConstantMessages.UsersNotFound;
+
+            return user;
+        }
+
+        public async Task<Result<User>> UpdateUser(Guid id, UpdateUserInput input)
+        {
+            var user = await userRepository.GetByIdAsync(id);
+
+            if (user == null)
+                return ConstantMessages.UserNotFound;
+
+            if (input.Name != "")
+            {
+                user.Name = input.Name;
+            }
+
+            await userRepository.UpdateAsync(user);
+
+            return user;
+        }
+
+        public async Task<Result<bool>> DeleteUser(Guid id)
+        {
+            var user = await userRepository.GetByIdAsync(id);
+
+            if (user == null)
+                return ConstantMessages.UserNotFound;
+
+            await userRepository.DeleteAsync(id);
+
+            return true;
+        }
     }
 }

@@ -1,18 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
 using Palyio.Application.Ports.UseCases;
-using Palyio.Application.UseCases;
 using Palyio.Application.UseCases.Boundaries.Input;
 
 namespace Palyio.API.Modules
 {
-    public static class UserHandler
+    public static class AccountHandler
     {
-        public static async Task CreateUser(HttpContext context,
-                                            [FromBody] CreateUserInput input,
-                                            [FromServices] IUserUseCase userUseCase,
+        public static async Task CreateAccount(HttpContext context,
+                                            [FromBody] CreateAccountInput input,
+                                            [FromServices] IAccountUseCase accountUseCase,
                                             CancellationToken cancellationToken = default)
         {
-            var result = await userUseCase.CreateUser(input);
+            var result = await accountUseCase.CreateAccount(input);
 
             if (!result.Success)
             {
@@ -24,11 +23,11 @@ namespace Palyio.API.Modules
             await context.Response.WriteAsJsonAsync(result.Value, cancellationToken: cancellationToken);
         }
 
-        public static async Task GetAllUsers(HttpContext context,
-                                             [FromServices] IUserUseCase userUseCase,
+        public static async Task GetAllAccounts(HttpContext context,
+                                             [FromServices] IAccountUseCase accountUseCase,
                                              CancellationToken cancellationToken = default)
         {
-            var result = await userUseCase.GetAllUsers();
+            var result = await accountUseCase.GetAllAccounts();
             
             if (!result.Success)
             {
@@ -40,12 +39,29 @@ namespace Palyio.API.Modules
             await context.Response.WriteAsJsonAsync(result.Value, cancellationToken: cancellationToken);
         }
 
-        public static async Task GetUserById(HttpContext context,
-                                             [FromServices] IUserUseCase userUseCase,
+        public static async Task GetAccountsByUserId(HttpContext context,
+                                                    [FromServices] IAccountUseCase accountUseCase,
+                                                    [FromRoute] Guid userId,
+                                                    CancellationToken cancellationToken = default)
+        {
+            var result = await accountUseCase.GetAccountByUserId(userId);
+            
+            if (!result.Success)
+            {
+                context.Response.StatusCode = StatusCodes.Status400BadRequest;
+                await context.Response.WriteAsJsonAsync(result.ErrorMessage, cancellationToken: cancellationToken);
+            }
+
+            context.Response.StatusCode = StatusCodes.Status200OK;
+            await context.Response.WriteAsJsonAsync(result.Value, cancellationToken: cancellationToken);
+        }
+
+        public static async Task GetAccountById(HttpContext context,
+                                             [FromServices] IAccountUseCase accountUseCase,
                                              [FromRoute] Guid id,
                                              CancellationToken cancellationToken = default)
         {
-            var result = await userUseCase.GetAllUsers();
+            var result = await accountUseCase.GetAccountById(id);
             
             if (!result.Success)
             {
@@ -57,13 +73,13 @@ namespace Palyio.API.Modules
             await context.Response.WriteAsJsonAsync(result.Value, cancellationToken: cancellationToken);
         }
 
-        public static async Task UpdateUser(HttpContext context,
-                                            [FromServices] IUserUseCase userUseCase,
+        public static async Task UpdateAccount(HttpContext context,
+                                            [FromServices] IAccountUseCase accountUseCase,
                                             [FromRoute] Guid id,
-                                            [FromBody] UpdateUserInput input,
+                                            [FromBody] UpdateAccountInput input,
                                             CancellationToken cancellationToken = default)
         {
-            var result = await userUseCase.UpdateUser(id, input);
+            var result = await accountUseCase.UpdateAccount(id, input);
             
             if (!result.Success)
             {
@@ -75,12 +91,12 @@ namespace Palyio.API.Modules
             await context.Response.WriteAsJsonAsync(result.Value, cancellationToken: cancellationToken);
         }
 
-        public static async Task DeleteUser(HttpContext context,
-                                            [FromServices] IUserUseCase userUseCase,
+        public static async Task DeleteAccount(HttpContext context,
+                                            [FromServices] IAccountUseCase accountUseCase,
                                             [FromRoute] Guid id,
                                             CancellationToken cancellationToken = default)
         {
-            var result = await userUseCase.DeleteUser(id);
+            var result = await accountUseCase.DeleteAccount(id);
             
             if (!result.Success)
             {
