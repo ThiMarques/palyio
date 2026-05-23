@@ -2,6 +2,8 @@ using Microsoft.OpenApi.Models;
 using Palyio.API.Router;
 using Palyio.Application.Ports.Repositories;
 using Palyio.Application.Ports.UseCases;
+using Palyio.Application.Ports.UseCases.LedgerEntry;
+using Palyio.Application.Ports.UseCases.Transaction;
 using Palyio.Application.UseCases;
 using Palyio.Infrastructure.Persistence;
 using Palyio.Infrastructure.Persistence.Repositories;
@@ -22,9 +24,13 @@ builder.Services.AddSingleton<MongoDbContext>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+builder.Services.AddScoped<ILedgerEntryRepository, LedgerEntryRepository>();
 
 builder.Services.AddScoped<IUserUseCase, UserUseCase>();
 builder.Services.AddScoped<IAccountUseCase, AccountUseCase>();
+builder.Services.AddScoped<ITransactionUseCase, TransactionUseCase>();
+builder.Services.AddScoped<ILedgerEntryUseCase, LedgerEntryUseCase>();
 
 var app = builder.Build();
 

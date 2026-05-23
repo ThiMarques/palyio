@@ -25,6 +25,14 @@ public static class RouterExtensions
         v1.MapGet("/account/{id}", AccountHandler.GetAccountById);
         v1.MapPut("/account/{id}", AccountHandler.UpdateAccount);
         v1.MapDelete("/account/{id}", AccountHandler.DeleteAccount);
+        // Transaction Routes
+        v1.MapPost("/transaction", TransactionHandler.CreateTransaction);
+        v1.MapGet("/transaction/{id}", TransactionHandler.GetTransactionById);
+        v1.MapGet("/transactions/account/{accountId}", TransactionHandler.GetTransactionsByAccountId);
+        // LedgerEntry Routes (read-only)
+        v1.MapGet("/ledger-entries/account/{accountId}/balance", LedgerEntryHandler.GetBalanceByAccountId);
+        v1.MapGet("/ledger-entries/account/{accountId}", LedgerEntryHandler.GetLedgerEntriesByAccountId);
+        v1.MapGet("/ledger-entries/transaction/{transactionId}", LedgerEntryHandler.GetLedgerEntriesByTransactionId);
 
         return builder;
     }
